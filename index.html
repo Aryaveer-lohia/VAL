@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec; /* Light pink background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars when button moves */
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .gif-container img {
+            width: 200px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #4caf50; /* Green */
+            color: white;
+            font-weight: bold;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #f44336; /* Red */
+            color: white;
+            font-weight: bold;
+            position: relative; /* Allows us to move it with JS */
+        }
+
+        /* Hidden class to toggle screens */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="ask-content">
+            <div class="gif-container">
+                <img src="C:\Users\lohia\OneDrive\Desktop\bhoomika.gif">
+            </div>
+            
+            <h1 id="question">Bhoomika, will you be my valentine?</h1>
+
+            <div class="buttons">
+                <button id="yesBtn" onclick="acceptLove()">Yes</button>
+                <button id="noBtn" onmouseover="moveButton()">No</button>
+            </div>
+        </div>
+
+        <div id="success-content" class="hidden">
+            <div class="gif-container">
+                <img src="C:\Users\lohia\OneDrive\Desktop\SECOND.jpeg">
+            </div>
+            <h1>
+<pre>
+Aaj wo din aaya hai jab tumhe ek dil ki baat kehna chahunga 
+Is dil ki baat kehekr tumhe apna bnana chahunga 
+Apna banake tumhe humesha khush rakhna chahunga
+Jo tumhaare chehre pr ek muskaan dekhu 
+To un ankho mai doobna chahunga 
+Un ankho mai doobkr tumhaare dil mai basna chahunga 
+Jo mera dil dhadke to bs tumhaara naam ki dhun gaunga 
+Jo tum bol na paoge wo sab tumhaari ankho se padhna chahunga 
+ek baar jo tumne han bola to zarre zarre se tumhaara ho jaunga 
+Be intaha ishq anant ibaadat se tumhaara chehre ko sajaunga 
+❤️❤️❤️
+<pre>
+ 🎉</h1>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const askContent = document.getElementById("ask-content");
+        const successContent = document.getElementById("success-content");
+
+        // Function to move the "No" button randomly
+        function moveButton() {
+            // Get the window dimensions
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Calculate random positions within the visible screen
+            // We subtract 100 to ensure the button doesn't go off the very edge
+            const randomX = Math.floor(Math.random() * (windowWidth - 150));
+            const randomY = Math.floor(Math.random() * (windowHeight - 100));
+
+            // Apply the new position
+            noBtn.style.position = "absolute";
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        }
+
+        // Function to handle the "Yes" click
+        function acceptLove() {
+            askContent.classList.add("hidden");
+            successContent.classList.remove("hidden");
+            
+            // Optional: Add confetti or extra effects here
+        }
+    </script>
+</body>
+</html>
